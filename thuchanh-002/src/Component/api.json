@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Senior Web Developer",
+    "title": "Intelitec Solutions",
+    "details": " Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring",
+    "time": "March 2013 - Present"
+  },
+  {
+    "id": 2,
+    "name": "Web Developer",
+    "title": "Intelitec Solutions",
+    "details": " Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.",
+    "time": "  December 2011 - March 2013"
+  },
+  {
+    "id": 3,
+    "name": "Junior Web Designer",
+    "title": "  Shout! Media Productions",
+    "details": " Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail. Keeping your eye on the ball while performing a deep dive on the start-up mentality to derive convergence on cross-platform integration.",
+    "time": " July 2010 - December 2011"
+  },
+  {
+    "id": 4,
+    "name": "Web Design Intern",
+    "title": "  Shout! Media Productions",
+    "details": " Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits. Dramatically visualize customer directed convergence without revolutionary ROI.",
+    "time": "   September 2008 - June 2010"
+  }
+]
