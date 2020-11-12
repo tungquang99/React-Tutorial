@@ -1,0 +1,56 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  height: 100vh;
+}
+
+.app {
+  position: relative;
+}
+
+.btn {
+  color: #fff !important;
+  outline: none !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.viettel {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: green;
+}
+
+.mobifone {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #0060af;
+}
+
+.vinaphone {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #00a1de;
+}
+
+.tkc {
+  color: #7c1;
+}
+
+.box-success {
+  background: rgba(15, 163, 44, 0.8);
+}
+
+.box-warning {
+  background: rgba(0, 96, 175, 0.8);
+}
+
+.box-primary {
+  background: rgba(0, 123, 255, 0.8);
+}
+/*# sourceMappingURL=main.css.map */

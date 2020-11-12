@@ -1,8 +1,7 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { getToken } from "../Contants/Common";
 import Login from "./Login";
-import TopBar from "./TopBar";
 
 function Header() {
   const [modalShow, setModalShow] = useState(false);
@@ -10,14 +9,9 @@ function Header() {
     getToken() ? setModalShow(false) : setModalShow(true);
   };
   return (
-    <nav
-      className="navbar navbar-expand-lg navbar-light  bg-warning text-white mt-5"
-      id="mainNav"
-    >
-      <div className="container">
-        <NavLink className="navbar-brand js-scroll-trigger" to="/">
-          Start Bootstrap
-        </NavLink>
+    <nav className="navbar navbar-expand-lg ml-auto " id="header-menu">
+      <div className="container ">
+        <div></div>
         <button
           className="navbar-toggler navbar-toggler-right"
           type="button"
@@ -30,41 +24,68 @@ function Header() {
           <i className="fas fa-bars" />
         </button>
         <div className="collapse navbar-collapse" id="navbarResponsive">
-          <ul className="navbar-nav ml-auto">
+          <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink exact className="nav-link js-scroll-trigger" activeClassName="active" to="/">
-                Home
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link js-scroll-trigger" activeClassName="active" to="/download">
-                Download
+              <NavLink
+                exact
+                className="nav-link "
+                activeClassName="active"
+                to="/"
+              >
+                Trang chủ
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
-                className="nav-link js-scroll-trigger"
+                className="nav-link j"
                 activeClassName="active"
-                to="/feature"
+                to="/list-card"
                 onClick={() => showModal()}
               >
-                Features
+                Danh sách thẻ cào
               </NavLink>
-              <Login show={modalShow} onHide={() => setModalShow(false)} />
-              <TopBar />
             </li>
             <li className="nav-item">
               <NavLink
-                className="nav-link js-scroll-trigger"
+                className="nav-link "
                 activeClassName="active"
-                to="/contact"
+                to="/han-muc-day-the"
                 onClick={() => showModal()}
               >
-                Contact
+                Hạn mức đẩy thẻ
               </NavLink>
-              <Login show={modalShow} onHide={() => setModalShow(false)} />
-              <TopBar />
             </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link"
+                activeClassName="active"
+                to="/rut-tien-ve-bank"
+                onClick={() => showModal()}
+              >
+                rút tiền về bank
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link "
+                activeClassName="active"
+                to="/lich-su-giao-dich"
+                onClick={() => showModal()}
+              >
+                Lịch sử giao dịch
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                className="nav-link "
+                activeClassName="active"
+                to="/bao-cao"
+                onClick={() => showModal()}
+              >
+                Báo cáo
+              </NavLink>
+            </li>
+            <Login show={modalShow} onHide={() => setModalShow(false)} />
           </ul>
         </div>
       </div>

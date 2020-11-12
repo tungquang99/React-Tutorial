@@ -3,9 +3,12 @@ import { Button } from "react-bootstrap";
 import { getToken, removeUserSession } from "../Contants/Common";
 import Login from "./Login";
 import { useHistory } from "react-router-dom";
+import Register from "./Register";
 
 function TopBar() {
-  const [modalShow, setModalShow] = useState(false);
+  const [modalLogin, setModalLogin] = useState(false);
+  const [modalRegister, setModalRegister] = useState(false);
+  const [inFor, setInfor] = useState(false);
   var token = getToken();
   const history = useHistory();
 
@@ -19,49 +22,76 @@ function TopBar() {
     if (!token) {
       return (
         <div className="container">
-          <div className="collapse navbar-collapse" id="navbarResponsive">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Button variant="primary" onClick={() => setModalShow(true)}>
-                  Đăng Nhập
-                </Button>
-                <Login show={modalShow} onHide={() => setModalShow(false)} />
-              </li>
-              <li className="nav-item">
-                <a className="nav-link js-scroll-trigger" href="#signup">
-                  Đăng ký
-                </a>
-              </li>
-            </ul>
+          <div className="">LOGO</div>
+          <div className="login">
+            <Button
+              variant=""
+              className="btn btn-signup"
+              onClick={() => setModalRegister(true)}
+            >
+              Đăng Ký
+            </Button>
+            <Register
+              show={modalRegister}
+              onHide={() => setModalRegister(false)}
+            />
+            <Button
+              variant=""
+              className="btn btn-signin"
+              onClick={() => setModalLogin(true)}
+            >
+              Đăng Nhập
+            </Button>
+            <Login show={modalLogin} onHide={() => setModalLogin(false)} />
+           
           </div>
         </div>
       );
     } else {
       return (
         <div className="container">
-          <div className="collapse navbar-collapse">
-            <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Button variant="primary">
-                  {sessionStorage.getItem("user")}
-                </Button>
-              </li>
-              <li className="nav-item">
-                <Button variant="danger" onClick={handleLogout}>
-                  Đăng xuất
-                </Button>
-              </li>
-            </ul>
+          <div className="">LOGO</div>
+          <div className="login">
+            <Button variant="" className="btn btn-signup">
+              Số dư: 1.000.0000.000
+            </Button>
+            <Button variant="" className="btn btn-signin" onClick={Toggle}>
+              {sessionStorage.getItem("user")}
+            </Button>
+            {showInForUser()}
           </div>
         </div>
       );
     }
   };
+
+  function Toggle() {
+    setInfor(inFor === false ? true : false);
+  }
+
+  const showInForUser = () => {
+    if (inFor === true) {
+      return (
+        <div class="infoUser">
+          <div class="triangle"></div>
+          <ul>
+            <li>
+              <a href="/">Đổi mật khẩu</a>
+            </li>
+            <li>
+              <a href="/" onClick={() => handleLogout()}>
+                Đăng xuất
+              </a>
+            </li>
+          </ul>
+        </div>
+      );
+    } else {
+      return;
+    }
+  };
   return (
-    <nav
-      className="navbar navbar-expand-lg navbar-light fixed-top"
-      id="mainNav"
-    >
+    <nav id="header-top" className=" navbar navbar-light bg-light static-top">
       {checkToken()}
     </nav>
   );

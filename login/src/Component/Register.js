@@ -1,22 +1,24 @@
 import React, { useState } from "react";
 import { Button, Container, Modal } from "react-bootstrap";
-import { setUserSession } from "./../Contants/Common";
-import callApi from "./../Api/ApiCaller";
+import { setUserSession } from "../Contants/Common";
+import callApi from "../Api/ApiCaller";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
-
-function Login(props) {
+function Register(props) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   var username = useFormInput("");
+  var email = useFormInput("");
+  var phone = useFormInput("");
   var password = useFormInput("");
+  var repassword = useFormInput("");
   const history = useHistory();
-  const handleLogin = () => {
+  const handleRegister = () => {
     setError(null);
     setLoading(true);
     callApi(
-      "Users/loginEncode/",
+      "Users/RegisterEncode/",
       "POST",
 
       "grant_type=client_credentials&Password=" +
@@ -36,14 +38,14 @@ function Login(props) {
         history.push("/");
         window.location.reload(false);
         props.onHide();
-        toast.success("Đăng Nhập Thành Công", {
+        toast.success("Đăng Ký Thành Công", {
           position: "top-right",
         });
       })
       .catch((error) => {
         setLoading(false);
         console.log(error);
-        toast.error("Sai tài khoản hoặc mật khẩu", {
+        toast.error("Lỗi đăng ký", {
           position: "top-center",
         });
       });
@@ -52,7 +54,7 @@ function Login(props) {
   return (
     <Modal {...props} aria-labelledby="contained-modal-title-vcenter">
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Đăng Nhập</Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">Đăng Ký</Modal.Title>
       </Modal.Header>
       <Modal.Body className="show-grid">
         <Container>
@@ -68,6 +70,16 @@ function Login(props) {
               <br />
               <input type="text" {...username} autoComplete="new-password" />
             </div>
+            <div>
+              Email
+              <br />
+              <input type="text" {...email} autoComplete="new-password" />
+            </div>
+            <div>
+              Phone
+              <br />
+              <input type="text" {...phone} autoComplete="new-password" />
+            </div>
             <div style={{ marginTop: 10 }}>
               Password
               <br />
@@ -77,14 +89,23 @@ function Login(props) {
                 autoComplete="new-password"
               />
             </div>
+            <div style={{ marginTop: 10 }}>
+              Re-Password
+              <br />
+              <input
+                type="password"
+                {...repassword}
+                autoComplete="new-password"
+              />
+            </div>
 
             <br />
           </div>
         </Container>
       </Modal.Body>
       <Modal.Footer>
-        <Button type="button" onClick={handleLogin} disabled={loading}>
-          {loading ? "Loading..." : "Đăng Nhập"}
+        <Button type="button" onClick={handleRegister} disabled={loading}>
+          {loading ? "Loading..." : "Đăng Ký"}
         </Button>
         <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer>
@@ -104,4 +125,4 @@ const useFormInput = (initialValue) => {
   };
 };
 
-export default Login;
+export default Register;

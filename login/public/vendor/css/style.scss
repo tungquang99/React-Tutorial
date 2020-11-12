@@ -1,0 +1,288 @@
+@import 'main';
+@import 'responsive';
+
+/* ===== LOGO - LOGIN - REGISTER =====*/
+#header-top {
+    .login {
+        .btn-signup {
+            background: #FF8C00;
+            margin-right: 5px;
+        }
+        .btn-signin {
+            background: $primary;
+            position: relative;
+        }
+        .infoUser {
+            width: 130px;
+            height: 70px;
+            position: absolute;
+            z-index: 9999;
+            right: 20.6%;
+            top: 100%;
+            background: #fff;
+            box-shadow: 0 0 5px 1px rgba(0,0,0,0.5);
+            padding: 10px;
+            border-radius: 2px;
+            ul {
+                list-style: none;
+                li {
+                    a {
+                        text-decoration: none;
+                    }
+                }
+            }
+            
+        }
+        .triangle {
+            position: absolute;
+            border-color: transparent transparent #fff transparent;
+            border-style: solid;
+            border-width: 0px 10px 10px 10px;
+            height: 0px;
+            width: 0px;
+            right: 22%;
+            top: -11%;
+        }
+    }
+}
+
+/* ===== NAVIGATION =====*/
+#header-menu {
+    background:$primary;
+    padding: 0;
+    
+        ul {
+            min-height: 50px;
+            height: 100%;
+            li {
+                a {
+                    height: 100%;
+                    color: $white;
+                    text-transform: uppercase;
+                    line-height: 36px;
+                    font-weight: 500;
+                    padding: 10px;
+                    &.active,
+                    &:hover {
+                        background: #148075;
+                    }
+                }
+
+            }
+        }
+        button.navbar-toggler.navbar-toggler-right {
+            padding: 10px 20px;
+            color: #fff;
+            font-size: 30px;
+        } 
+}
+
+/*===== BANNER =======*/
+#banner {
+    width: 100%;
+    height: 470px;
+    background-size: cover;
+    background-image: url(/vendor/img/banthe.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+#myck {
+    position: absolute;
+    right: 15%;
+    top: 50%;
+    transform: translateY(-50%);
+    /* border: 1px solid; */
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #1ca799;
+    width: 350px;
+    .h4 {
+        display: flex;
+        justify-content: center;
+    }
+    .table thead th {
+        border-bottom: 1px solid #dee2e6;
+        border-top: 0px;
+    }
+    .table td:nth-child(1), .table th:nth-child(1) {
+        border-right: 1px solid #dee2e6;    
+    }
+}
+
+
+/*===== CONTAINER =======*/
+#contain {
+    margin-top: 20px;
+    .box-card {
+        justify-content: center;
+        @include title(180px,90px);
+        .box {
+            margin: 10px;
+            padding: 10px;
+            border-radius: $border-radius;
+            max-width: 350px !important;
+            &-heading {
+                color: $white;
+                text-align: center;
+                margin-bottom: 5px;
+                text-transform: uppercase;
+                font-weight: 500;
+                letter-spacing: 2px;
+                padding: 8px;
+                border-radius: $border-radius;
+            }
+            &-body {
+                padding: 10px 20px;
+                &_success {
+                    background: rgba(15, 163, 44, 0.5);
+                }
+                &_warning {
+                    background: rgba(0,96, 175, 0.5);
+                }
+                &_primary {
+                    background: rgba(0, 123, 255, 0.5);
+                }
+            }
+        }
+
+        .btn-nap {
+            width: 100%;
+            font-weight: 500 !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+          }
+          
+          .btn-vt {
+            background: #0f922a;
+            &:hover {
+                background: #12a02f;
+            }
+          }
+          .btn-mb {
+            background: #0060af;
+             &:hover {
+                background: #016dc5;
+            }
+          }
+          .btn-vn {
+            background: #007bff;
+             &:hover {
+                background: #1a88fd;
+            }
+          }
+    }
+    .banggiack {
+        #accordion {
+            margin-top: 28px;
+            .card {
+                background-color: $primary !important;
+                h5 {
+                    text-align: center;
+                    .btn-link {
+                        font-weight: bold !important;
+                        text-decoration: none;
+                    }
+                }
+                &-header {
+                   padding: 0 !important;
+                }
+                &-body {
+                    background: #fff;
+                    th {
+                       color:  $primary ;
+                    }
+                }
+                
+            }
+        }
+    }
+
+    .tichhopapi {
+        &-body {
+            height:350px;
+            width: 100%;
+            border: $border;
+
+            ul {
+                padding: 15px;
+                list-style: none;
+                li {
+                    padding: 5px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    img.icon_check {
+                        width: 15px;
+                    }
+
+                    @include a($primary,#148075);
+                }
+            }
+        }
+    }
+
+    .nganhang {
+        .title {
+            @include title (180px,90px)
+        }
+        &-list {
+            display: flex;
+            img {
+                border: 1px solid #ccc;
+                margin: 8px;
+                width: 95px;
+                height: 60px;
+                padding: 10px;
+            }
+        }
+    }
+}
+
+/*===== FOOTER =======*/
+.footer {
+    width: 100%;
+    height: 350px;
+    background: rgb(43, 43, 43);
+    padding: 50px;
+    .title {
+        margin-left: 50px;
+        h4 {
+            font-size: 20px;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 35px;
+            font-weight: 600;
+        }
+        p,a {
+            color: #fff;
+            font-size: 16px;
+        }
+
+        ul {
+           list-style: none;
+        }
+
+        @include a(#fff,$primary);
+    }
+
+    .copyright {
+        position: relative;
+        margin-top: 90px;
+        &::before {
+            content: '';
+            width: 100%;
+            height: 1px;
+            position: absolute;
+            background-color: #fff;
+            top: -20px;
+        }
+        span {
+            display: flex;
+            justify-content: center;
+            color: #fff;
+            @include a($primary,$primary);
+        }
+    }
+}

@@ -1,0 +1,123 @@
+    $primary: #1CA799;
+    $white: #fff;
+    $black: #000;
+    $text: rgba(0, 0, 0, 0.54);
+    $border: 1px solid silver;
+    $border-radius: 5px;
+
+
+@mixin font ($size,$weight, $lh, $align) {
+    font: {
+        size: $size;
+        weight: $weight;
+    }
+    line-height: $lh;
+    text-align: $align;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+  height: 100vh;
+}
+
+.app {
+  position: relative;
+}
+
+.btn {
+    color: #fff !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+
+
+
+@mixin a($color,$hover) {
+  a {
+    color: $color;
+    text-decoration: none;
+    vertical-align: middle;
+    &:hover {
+        color: $hover;
+    }
+  }
+}
+
+@mixin title ($w-before,$w-after) {
+  .h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 25px;
+    &::before {
+        content: '';
+        width: $w-before;
+        position: absolute;
+        height: 3px;
+        background: rgb(192, 192, 192);
+        top: 130%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    &::after {
+        content: '';
+        width: $w-after;
+        position: absolute;
+        height: 3px;
+        background: $primary;
+        top: 130%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    &:hover {
+        color: $primary;
+        cursor: pointer;
+    }
+  }
+}
+
+
+.viettel {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: green;
+}
+.mobifone {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #0060af
+}
+.vinaphone {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #00a1de;
+}
+.tkc {
+  color: #7c1;
+}
+
+.box-success {
+  background: rgba(15, 163, 44, 0.8);
+}
+.box-warning {
+  background: rgba(0,96, 175, 0.8)
+}
+.box-primary {
+  background: rgba(0, 123, 255, 0.8);
+}
+
+
+
+
+
+
+

@@ -9,3 +9,4 @@ export default function callApi(endpoint, method = "GET", body, headers) {
     headers : headers,
   });
 }
+

@@ -1,0 +1,30 @@
+@import 'main';
+
+/*Iphone*/
+@media screen and (min-width: 320px) and (max-width: 739px) {
+    .footer {
+        margin: 0;
+        padding: 15px;
+    }
+    .policy {
+        display: none;
+        margin: 0;
+    }
+
+    
+#myck {
+    right: 6%;
+    width: 90%;
+}
+}
+/*Tablet */
+@media screen and (min-width: 740px) and (max-width: 1025px) {
+}
+/*PC màn hình nhỏ*/
+@media screen and (min-width: 1026px) and (max-width: 1204px) {
+
+}
+/*Desktop*/
+@media screen and (min-width: 1205px){
+    
+}
