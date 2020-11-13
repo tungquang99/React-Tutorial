@@ -1,0 +1,71 @@
+.info-box .info-box-content {
+    width: 100%;
+}
+.content-news,
+.title-news {
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.title-news {
+    font-size: 1.2rem;
+}
+.brand-link {
+    font-size: 1.125rem !important;
+}
+
+.status {
+    color: #fff !important;
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
+}
+
+.success {
+    background: #2ead0e !important;
+}
+
+.watting {
+    background: #b55e9a;
+}
+
+.error {
+    background: #c31010;
+}
+
+.VT {
+    color: #08b64b;
+}
+.VN {
+    color: #00a1de;
+}
+.MB {
+    color: #0063af;
+}
+.kplus {
+    color: #6fc114;
+}
+.sms {
+    color: #e4a735;
+}
+
+.info-box-content {
+    height: 150px;
+}
+
+bootstrapbutton.btn-primary.btn-act {
+    padding: 5px 8px;
+    border-radius: 2.5px;
+    font-size: 0.7rem;
+}
