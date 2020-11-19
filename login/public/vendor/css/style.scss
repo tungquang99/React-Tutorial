@@ -229,6 +229,8 @@
         }
         &-list {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             img {
                 border: 1px solid #ccc;
                 margin: 8px;

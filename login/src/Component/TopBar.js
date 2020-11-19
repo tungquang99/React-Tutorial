@@ -13,7 +13,7 @@ function TopBar() {
   const history = useHistory();
 
   const handleLogout = () => {
-    removeUserSession();
+    // removeUserSession();
     history.push("/");
     window.location.reload(false);
   };

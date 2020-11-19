@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import NganHang from "../Component/Home/NganHang";
 import TichhopApi from "../Component/Home/TichhopApi";
+import Lichsugiaodich from "../Component/Lichsu/Lichsugiaodich";
 import MyCk from "../Component/MyCk";
 
 
@@ -11,8 +12,9 @@ class Lichsugd extends Component {
       <MyCk />
       <div id="contain">
         <div className="container">
-          <div className="muathe mt-5 "></div>
-
+          <div className="muathe mt-5 ">
+            <Lichsugiaodich />
+          </div>
           <TichhopApi />
           <NganHang />
         </div>

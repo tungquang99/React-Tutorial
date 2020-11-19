@@ -1,6 +1,6 @@
 import React from "react";
 import { ToastContainer } from "react-toastify";
-import CardItem from "./CardItem";
+import BoxItem from "./BoxItem";
 
 function BoxCard() {
   return (
@@ -18,19 +18,19 @@ function BoxCard() {
       />
       <span className="h2 col-12">Nạp thẻ cào</span>
 
-      <CardItem
+      <BoxItem
         title="Viettel"
         box="box-success"
         boxbody="box-body_success"
         btn="btn-vt"
       />
-      <CardItem
+      <BoxItem
         title="MobiFone"
         box="box-warning"
         boxbody="box-body_warning"
         btn="btn-mb"
       />
-      <CardItem
+      <BoxItem
         title="VinaPhone"
         box="box-primary"
         boxbody="box-body_primary"
