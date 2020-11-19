@@ -1,0 +1,50 @@
+[
+    {
+        "id":1,
+        "image":"http://placehold.it/700x400",
+        "Name":"Item One",
+        "Price":"$25.99",
+        "Details":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
+        "Rate":"★ ★ ★ ★ ☆"
+    },
+    {
+        "id":2,
+        "image":"http://placehold.it/700x400",
+        "Name":"Item Two",
+        "Price":"$24.99",
+        "Details":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
+        "Rate":"★ ★ ★ ☆ ☆"
+    },
+    {
+        "id":3,
+        "image":"http://placehold.it/700x400",
+        "Name":"Item Three",
+        "Price":"$23.99",
+        "Details":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
+        "Rate":"★ ★ ☆ ☆ ☆"
+    },
+    {
+        "id":4,
+        "image":"http://placehold.it/700x400",
+        "Name":"Item Four",
+        "Price":"$22.99",
+        "Details":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
+        "Rate":"★ ★ ★ ☆ ☆"
+    },
+    {
+        "id":5,
+        "image":"http://placehold.it/700x400",
+        "Name":"Item Five",
+        "Price":"$21.99",
+        "Details":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
+        "Rate":"★ ★ ★ ★ ★"
+    },
+    {
+        "id":6,
+        "image":"http://placehold.it/700x400",
+        "Name":"Item Six",
+        "Price":"$20.99",
+        "Details":"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
+        "Rate":"★ ★ ★ ★ ★"
+    }
+]
