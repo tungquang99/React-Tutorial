@@ -1,26 +1,46 @@
 import React, { useEffect, useState } from "react";
 import queryString from "query-string";
-import mockApi from "../../Api/MockApi";
 import { getToken } from "../../Contants/Common";
 import { Pagination, Table, Tag } from "antd";
 import Search from "./Search";
+import callApi from "../../Api/ApiCaller";
 
 function ItemCard() {
   const [listCard, setListCard] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [checkbox, setCheckbox] = useState([]);
   const [current, setCurrent] = useState(1);
   const [loading, setLoading] = useState(true);
   const [srch, setSrch] = useState({
-    search: "",
-    filter: "",
+    name: "",
+    mang: "",
   });
 
   useEffect(() => {
     const paramString = queryString.stringify(srch);
     if (getToken()) {
       setLoading(true);
-      mockApi(`lenh?page=${current}&limit=${pageSize}&${paramString}`, "GET")
+      callApi(
+        `TopupCard/getTopupCardHistory?page=${current-1}&pageSize=${pageSize}&${paramString}&trangthai=&TranID=&Lock=&createAt=&updateAt=`,
+        "GET",
+        "",
+        {
+          "Content-Type": "application/json",
+          Authorization: "bearer " + localStorage.getItem("token"),
+        }
+      )
         .then((response) => {
-          setListCard(response.data);
+          console.log(response.data);
+          const results = response.data.data.records.map((row) => ({
+            key: row.Id, // I added this line
+            id: row.Id,
+            account: row.Account,
+            mang: row.Carry,
+            menhgia: row.Amount,
+            status: row.Status,
+          }));
+          setTotal(response.data.data.total)
+          setListCard(results);
           setLoading(false);
         })
         .catch((error) => {
@@ -36,16 +56,28 @@ function ItemCard() {
       key: "id",
     },
     {
+      title: "Tài Khoản",
+      dataIndex: "account",
+      key: "account",
+      render: (text) => <a href="/">{text}</a>,
+    },
+    {
       title: "Mạng",
       key: "mang",
       dataIndex: "mang",
       render: (mang) =>
-        mang === "Viettel" ? (
+        mang === "viettel" ? (
           <Tag color="green">Viettel</Tag>
-        ) : mang === "VinaPhone" ? (
+        ) : mang === "vinaphone" ? (
           <Tag color="blue">VinaPhone</Tag>
-        ) : mang === "MobiFone" ? (
+        ) : mang === "mobifone" ? (
           <Tag color="geekblue">MobiFone</Tag>
+        ) : mang === "viettelbt" ? (
+          <Tag color="green">Viettelbt</Tag>
+        ) : mang === "vinaphonebt" ? (
+          <Tag color="blue">VinaPhonebt</Tag>
+        ) : mang === "mobifonebt" ? (
+          <Tag color="geekblue">MobiFonebt</Tag>
         ) : (
           <span></span>
         ),
@@ -56,14 +88,23 @@ function ItemCard() {
       key: "menhgia",
     },
     {
-      title: "Seri",
-      dataIndex: "seri",
-      key: "seri",
-    },
-    {
-      title: "Mã Thẻ",
-      dataIndex: "code",
-      key: "code",
+      title: "Trạng Thái",
+      dataIndex: "status",
+      key: "status",
+      render: (status) =>
+        status === 9 ? (
+          <Tag color="purple">Chờ xử lý</Tag>
+        ) : status === 10 ? (
+          <Tag color="orange">Đang xử lý</Tag>
+        ) : status === 11 ? (
+          <Tag color="red">Hủy</Tag>
+        ) : status === 0 ? (
+          <Tag color="green">Hoàn Thành</Tag>
+        ) : status === 99 ? (
+          <Tag color="volcano">Xử lý lỗi</Tag>
+        ) : (
+          <span></span>
+        ),
     },
   ];
 
@@ -71,20 +112,30 @@ function ItemCard() {
     console.log("value: ", filter);
     setSrch({
       ...srch,
-      search: filter.search,
-      filter: filter.select,
+      name: filter.search,
+      mang: filter.select,
     });
   }
 
+  const onSelectChange = (checkbox) => {
+    console.log("selectedRowKeys changed: ", checkbox);
+    setCheckbox(checkbox);
+  };
+
+  const rowSelection = {
+    checkbox,
+    onChange: onSelectChange,
+  };
+
   //Pagination
-  const total = 100;
   const pageSize = 10;
-  const MyPagination = ({ total, onChange, current }) => {
+  const MyPagination = ({ total, onChange, current}) => {
     return (
       <Pagination
         onChange={onChange}
         total={total}
         current={current}
+        responsive={true}
       />
     );
   };
@@ -93,11 +144,15 @@ function ItemCard() {
     <React.Fragment>
       <Search onSubmit={handleSearchForm} />
       <Table
+        key={listCard.id}
         columns={columns}
         dataSource={listCard}
         scroll={{ x: 1000 }}
         pagination={false}
         loading={loading}
+        rowSelection={{
+          ...rowSelection,
+        }}
       />
       <MyPagination total={total} current={current} onChange={setCurrent} />
     </React.Fragment>

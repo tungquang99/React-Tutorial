@@ -13,7 +13,7 @@ function TopBar() {
   const history = useHistory();
 
   const handleLogout = () => {
-    // removeUserSession();
+    removeUserSession();
     history.push("/");
     window.location.reload(false);
   };
@@ -56,7 +56,7 @@ function TopBar() {
               Số dư: 1.000.0000.000
             </Button>
             <Button variant="" className="btn btn-signin" onClick={Toggle}>
-              {sessionStorage.getItem("user")}
+              {localStorage.getItem("user")}
             </Button>
             {showInForUser()}
           </div>

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class TichhopApi extends Component {
   render() {
@@ -8,7 +9,7 @@ export default class TichhopApi extends Component {
           <ul>
             <li>
               <img src="/vendor/img/12.gif" alt="" className="icon_check" />
-              <a href="/">Tài liệu hướng dẫn tích hợp API mua thẻ</a>
+              <Link to="/ket-noi-api">Tài liệu hướng dẫn tích hợp API mua thẻ</Link>
             </li>
             <li>
               <img src="/vendor/img/12.gif" alt="" className="icon_check" />

@@ -7,13 +7,14 @@ import ListCard from "./Page/ListCard";
 import Home from "./Page/Home";
 import Baocao from "./Page/Baocao";
 import Ruttien from "./Page/Ruttien";
+import KetnoiApi from "./Page/KetnoiApi";
 
 export default class Routes extends Component {
   render() {
     return (
       <div>
         <Route exact path="/" component={Home} />
-
+       
         <PrivateRoute path="/list-card" component={ListCard} />
 
         <PrivateRoute path="/han-muc-day-the" component={HanMucDayThe} />
@@ -23,6 +24,8 @@ export default class Routes extends Component {
         <PrivateRoute path="/lich-su-giao-dich" component={Lichsugd} />
 
         <PrivateRoute path="/bao-cao" component={Baocao} />
+
+        <Route path="/ket-noi-api" component={KetnoiApi} />
       </div>
     );
   }
