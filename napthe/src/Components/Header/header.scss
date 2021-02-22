@@ -1,0 +1,120 @@
+@import "../../assets/style";
+
+.nav {
+    display: flex !important;
+    justify-content: space-between;
+    height: var(--header-height);
+    align-items: center;
+    padding: 2rem 0;
+
+    &__list {
+        display: flex;
+        align-items: center;
+    }
+
+    &__link {
+        font-size: $big-font-size;
+
+        i {
+            margin-top: 1rem;
+        }
+    }
+
+    &__logo {
+        height: 30px;
+        margin-left: 0.6rem;
+    }
+
+    &__user {
+        width: 39px;
+        height: 39px;
+        border-radius: 50%;
+        margin-left: 0.6rem;
+    }
+
+    &__badge {
+        font-size: 0.6rem;
+        padding: 2px 4px;
+        font-weight: 300;
+        position: absolute;
+        right: 60px;
+        top: 9px;
+        color: #fff;
+        background: $danger-color;
+        border-radius: 5px;
+    }
+}
+
+// THÔNG BÁO
+#notification-menu {
+    min-width: 380px;
+    position: absolute;
+    right: 3%;
+    top: 77%;
+}
+
+#info-menu {
+    min-width: 150px;
+    position: absolute;
+    right: 1%;
+    top: 77%;
+    width: 220px;
+}
+
+.dropdown__menu {
+    list-style: none;
+    flex-direction: column;
+    background: $light-background;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: var(--z-toltip);
+    padding: unset;
+    border-radius: 10px;
+    border: 0.125px solid $light-second-background;
+    transition: all 0.3s;
+
+    &-content {
+        max-height: 500px;
+        overflow-y: auto;
+    }
+
+    &-item {
+        width: 100%;
+    }
+
+    &-link {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-decoration: none;
+        color: var(--main-color);
+        padding: 5px;
+        &:hover {
+            background-color: $light-second-background;
+            border-radius: 10px;
+        }
+    }
+
+    &-link div {
+        min-width: 50px;
+        height: 50px;
+        position: relative;
+    }
+
+    &-link i {
+        font-size: $big-font-size;
+        color: $light-second-color;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &-link span {
+        font-size: 15px;
+        width: 298px;
+    }
+
+    &-link span > span {
+        font-size: 10px;
+    }
+}
