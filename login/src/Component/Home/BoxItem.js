@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import mockApi from "../../Api/MockApi";
 import { getToken } from "../../Contants/Common";
-import Login from "../Login";
 import { toast } from "react-toastify";
 import { FastField, Form, Formik } from "formik";
 import InputField from "../../Validation/InputField";
@@ -52,7 +51,6 @@ function BoxItem(props) {
 
   return (
     <div className="col-md-4 box">
-      <Login show={modalShow} onHide={() => setModalShow(false)} />
       <div className={"box-heading " + props.box}>{props.title}</div>
       <div className={"box-body " + props.boxbody}>
         <Formik

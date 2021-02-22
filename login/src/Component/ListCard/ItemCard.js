@@ -4,6 +4,8 @@ import { getToken } from "../../Contants/Common";
 import { Pagination, Table, Tag } from "antd";
 import Search from "./Search";
 import callApi from "../../Api/ApiCaller";
+import { Modal, Button } from "antd";
+
 
 function ItemCard() {
   const [listCard, setListCard] = useState([]);
@@ -11,6 +13,7 @@ function ItemCard() {
   const [checkbox, setCheckbox] = useState([]);
   const [current, setCurrent] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const [srch, setSrch] = useState({
     name: "",
     mang: "",
@@ -21,7 +24,9 @@ function ItemCard() {
     if (getToken()) {
       setLoading(true);
       callApi(
-        `TopupCard/getTopupCardHistory?page=${current-1}&pageSize=${pageSize}&${paramString}&trangthai=&TranID=&Lock=&createAt=&updateAt=`,
+        `TopupCard/getTopupCardHistory?page=${
+          current - 1
+        }&pageSize=${pageSize}&${paramString}&trangthai=&TranID=&Lock=&createAt=&updateAt=`,
         "GET",
         "",
         {
@@ -30,16 +35,19 @@ function ItemCard() {
         }
       )
         .then((response) => {
-          console.log(response.data);
           const results = response.data.data.records.map((row) => ({
             key: row.Id, // I added this line
             id: row.Id,
             account: row.Account,
+            daugia: row.Daugia,
+            cannap: row.Amount,
+            danap: row.ChargeAmount,
             mang: row.Carry,
-            menhgia: row.Amount,
             status: row.Status,
+            mess: row.Message,
+            note: row.Note,
           }));
-          setTotal(response.data.data.total)
+          setTotal(response.data.data.total);
           setListCard(results);
           setLoading(false);
         })
@@ -48,6 +56,18 @@ function ItemCard() {
         });
     }
   }, [current, srch]);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
 
   const columns = [
     {
@@ -60,6 +80,22 @@ function ItemCard() {
       dataIndex: "account",
       key: "account",
       render: (text) => <a href="/">{text}</a>,
+    },
+    {
+      title: "Đấu Giá",
+      dataIndex: "daugia",
+      key: "daugia",
+      render: (daugia) => <span>{daugia}%</span>,
+    },
+    {
+      title: "Cần Nạp",
+      dataIndex: "cannap",
+      key: "cannap",
+    },
+    {
+      title: "Đã Nạp",
+      dataIndex: "danap",
+      key: "danap",
     },
     {
       title: "Mạng",
@@ -83,11 +119,6 @@ function ItemCard() {
         ),
     },
     {
-      title: "Mệnh Giá",
-      dataIndex: "menhgia",
-      key: "menhgia",
-    },
-    {
       title: "Trạng Thái",
       dataIndex: "status",
       key: "status",
@@ -105,6 +136,37 @@ function ItemCard() {
         ) : (
           <span></span>
         ),
+    },
+    {
+      title: "Thông điệp",
+      dataIndex: "mess",
+      key: "mess",
+      render: (mess) => (
+        <>
+          <Button type="danger" onClick={showModal}>
+            Message
+          </Button>
+          <Modal
+          title="Basic Modal"
+          visible={isModalVisible}
+          onOk={handleOk}
+          onCancel={handleCancel}
+          closable={false}
+        >
+          {mess}
+        </Modal>
+        </>
+      ),
+    },
+    {
+      title: "Ghi chú",
+      dataIndex: "note",
+      key: "note",
+      render: (note) => (
+        <>
+          <span>{note}</span>
+        </>
+      ),
     },
   ];
 
@@ -129,7 +191,7 @@ function ItemCard() {
 
   //Pagination
   const pageSize = 10;
-  const MyPagination = ({ total, onChange, current}) => {
+  const MyPagination = ({ total, onChange, current }) => {
     return (
       <Pagination
         onChange={onChange}
